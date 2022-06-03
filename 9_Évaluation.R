@@ -3,7 +3,7 @@ library(httr)
 
 # run : 
 {
-  API_Key <- "X"
+  API_Key <- "RGAPI-3666b8ff-ffe0-43bc-8464-613343701a85"
 }
 
 # functions 
@@ -218,6 +218,14 @@ times <- function(match_id,alpha=2,beta=2)
       }
       TAdf[,t] <- counter
     }
+  }
+  
+  TKAdf <- TKdf+TAdf
+  
+  fit <- list(NA)
+  for (d in (1:length(TGdf)))
+  {
+    fit[[d]] <- lm(TGdf[,d] ~ TFdf[,d] + TKAdf[,d])
   }
   
   # Gold du farm
@@ -542,7 +550,6 @@ for (d in (1:length(t0f)))
 }
 }
 
-# Par exemple :
 id <- lastMatch("MagiFelix5")
 # https://www.leagueofgraphs.com/match/euw/5901719759#participant9
 
@@ -580,9 +587,24 @@ time <- times(id,20,5)
   
 }
 
+mean_mean_tTf <- mean(mean_tTf)
+mean_sd_tTf <- mean(sd_tTf)
+mean_mean_tOf <- mean(mean_tOf)
+mean_sd_tOf <- mean(sd_tOf)
+
 a <- mean_diff <- mean(diff_tTf_tOf)
 b <- sd_diff <- sd(diff_tTf_tOf)
 
+# svg <- test # alpha = 3 ; beta = 5
+# svg2 <- test # alpha = 2 ; beta = 3
+# svg3 <- test # a=b=10
+# svg4 <- test # a=b=20
+# svg5 <- test # a=12, b=20
+# svg6 <- test # a=20, b=12
+# svg7 <- test # a=20,b=6
+# sv8 <- test # a=20 ; b=3
+# sv9 <- test # a=20 ; b=4
+svg10 <- test # a=20 ; b=5
 
 
 

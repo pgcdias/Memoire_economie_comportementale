@@ -3,7 +3,7 @@ library(httr)
 
 # run : 
 {
-  API_Key <- "x"
+  API_Key <- "RGAPI-3666b8ff-ffe0-43bc-8464-613343701a85"
 }
 
 # functions 
@@ -885,7 +885,7 @@ times <- function(match_id,alpha=2,beta=2)
       }
     }
   }
-
+  
   # Valeur tf prédite par le modèle rationnel
   # tTf & tTka
   {
@@ -900,7 +900,7 @@ times <- function(match_id,alpha=2,beta=2)
     tTf = (alpha^(2)*nFd)/(beta^(2)*nKAd+alpha^(2)*nFd)
     tTka = (beta^(2)*nKAd)/(beta^(2)*nKAd+alpha^(2)*nFd)
   }
-
+  
   result <- list("temps théorique du farm"=tTf,
                  "temps théorique du combat"=tTka,
                  "temps empirique du farm"=tOf,
